@@ -191,7 +191,7 @@ function Card({ data, onFinderClick }) {
     <span className={styles.projectNumber}>01</span>
     <div className={styles.projectBottom}>
       <div>
-        <h2 className={styles.projectTitle}>{data.title}</h2>
+        <h2 className={styles.projectTitle}>Project Showcase: {data.title}</h2>
         <p className={styles.projectDescription}>{data.description}</p>
         {data.tags && (
           <div className={styles.tags}>
