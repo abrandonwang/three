@@ -1,0 +1,91 @@
+.window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 520px;
+    max-height: 70vh;
+    background: var(--color-content);
+    border-radius: 18px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    pointer-events: auto;
+}
+
+.titleBar {
+    height: 40px;
+    background: var(--color-header);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+    cursor: default;
+}
+
+.trafficLights {
+    position: absolute;
+    left: 14px;
+    display: flex;
+    gap: 8px;
+}
+
+.closeBtn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--color-traffic-red);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.closeIcon {
+    font-size: 10px;
+    color: transparent;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.closeBtn:hover .closeIcon {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.minimizeBtn, .maximizeBtn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.minimizeBtn {
+    background: var(--color-traffic-yellow);
+}
+
+.maximizeBtn {
+    background: var(--color-traffic-green);
+}
+
+.title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.content {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.fallback {
+    padding: 40px;
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 14px;
+}

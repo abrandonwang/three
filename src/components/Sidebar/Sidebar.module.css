@@ -1,0 +1,129 @@
+.container {
+    width: 180px;
+    background: var(--color-sidebar);
+    border-right: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    padding: 10px 8px;
+    gap: 16px;
+    overflow-y: auto;
+    flex-shrink: 0;
+}
+
+.container::-webkit-scrollbar {
+    display: none;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+}
+
+.heading {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0 8px;
+    margin-bottom: 4px;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.sidebarItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 10px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s;
+    background: none;
+    border: none;
+    font-family: inherit;
+    width: 100%;
+}
+
+.sidebarItem:hover {
+    background: var(--color-hover);
+}
+
+.sidebarItem span.material-symbols-outlined {
+    font-size: 20px;
+    color: var(--color-accent);
+}
+
+.active {
+    background: var(--color-accent);
+    color: white;
+    font-weight: 700;
+}
+
+.active:hover {
+    background: var(--color-accent);
+}
+
+.active span.material-symbols-outlined {
+    color: white;
+}
+
+.locationIcon {
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.locationIcon span {
+    font-size: 14px;
+    color: white;
+}
+
+.iconGitHub { background: #475569; }
+.iconLinkedIn { background: #2563eb; }
+.iconEmail { background: #16a34a; }
+
+.toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--color-text-primary);
+    color: white;
+    padding: 14px 22px;
+    border-radius: 14px;
+    font-size: 13px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    animation: toastIn 0.3s ease, toastOut 0.3s ease 1.7s forwards;
+}
+
+.toast span.material-symbols-outlined {
+    font-size: 20px;
+    color: #28c840;
+}
+
+@keyframes toastIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes toastOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(10px); }
+}

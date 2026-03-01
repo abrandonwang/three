@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inconsolata:wght@200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --color-bg: #edeef0;
+    --color-card: #fff;
+    --color-card-hover: #fff;
+    --color-text: #0a0a0a;
+    --color-text-secondary: rgba(10, 10, 10, 0.55);
+    --color-text-muted: rgba(10, 10, 10, 0.25);
+    --color-border: rgba(255, 255, 255, 0.06);
+    --color-accent: #7B2D8E;
+    --radius: 20px;
+    --font-sans: 'Inter','Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body, #root {
+    width: 100%;
+    min-height: 100vh;
+}
+
+body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+}
