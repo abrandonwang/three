@@ -128,8 +128,10 @@
     flex-direction: column;
     justify-content: space-between;
     text-decoration: none;
-    color: inherit;
+    color: var(--color-text);
     cursor: pointer;
+    background: #ece8f5;
+    gap: 12px;
 }
 
 .helloTop {
@@ -141,13 +143,13 @@
 .helloGithubIcon {
     width: 18px;
     height: 18px;
-    color: var(--color-text-muted);
+    color: rgba(15, 15, 15, 0.4);
 }
 
 .helloGithubLabel {
     font-size: 11px;
     font-weight: 700;
-    color: var(--color-text-muted);
+    color: rgba(15, 15, 15, 0.4);
     text-transform: uppercase;
     letter-spacing: 0.08em;
 }
@@ -167,17 +169,19 @@
     transform: translateY(-50%);
     width: 204%;
     height: auto;
+    mix-blend-mode: multiply;
 }
 
 .helloHandle {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--color-text-secondary);
-    transition: color 0.2s;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+    transition: color 0.2s, transform 0.2s;
 }
 
 .hello:hover .helloHandle {
-    color: var(--color-text);
+    transform: translateY(-4px);
 }
 
 .helloText {
@@ -228,7 +232,7 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 32px 36px;
-    background: #111;
+    background: var(--color-dark);
     color: #fff;
 }
 

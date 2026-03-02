@@ -108,7 +108,7 @@ function Card({ data, onFinderClick }) {
         </div>
         <div className={styles.helloChartWrap}>
           <img
-            src="https://ghchart.rshah.org/abrandonwang"
+            src="https://ghchart.rshah.org/7B2D8E/abrandonwang"
             className={styles.helloChart}
             alt="GitHub contributions"
           />
