@@ -130,7 +130,7 @@
     text-decoration: none;
     color: var(--color-text);
     cursor: pointer;
-    background: #ece8f5;
+    background: #fff;
     gap: 12px;
 }
 
@@ -232,21 +232,17 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 32px 36px;
-    background: var(--color-dark);
+    background: #9cdcfe;
     color: #fff;
 }
 
 .projectNumber {
     font-size: 72px;
     font-weight: 800;
-    color: rgba(255, 255, 255, 0.06);
+    color: var(--color-text-muted);
     letter-spacing: -0.04em;
     line-height: 1;
     transition: color 0.4s ease;
-}
-
-.project:hover .projectNumber {
-    color: rgba(255, 255, 255, 0.12);
 }
 
 .projectBottom {
@@ -261,12 +257,12 @@
     font-weight: 700;
     letter-spacing: -0.02em;
     margin-bottom: 6px;
-    color: #fff;
+    color: var(--color-text);
 }
 
 .projectDescription {
     font-size: 13px;
-    color: rgba(255, 255, 255, 0.65);
+    color: var(--color-text-secondary);
     line-height: 1.5;
     max-width: 400px;
 }
@@ -281,11 +277,11 @@
 .tag {
     font-size: 10px;
     font-weight: 700;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--color-text-secondary);
     background: rgba(255, 255, 255, 0.08);
     padding: 4px 10px;
     border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid var(--color-text);
     text-transform: uppercase;
     letter-spacing: 0.03em;
 }
@@ -533,4 +529,150 @@
     transform: scale(0.45);
     transform-origin: top left;
     pointer-events: none;
+}
+
+.resume {
+    display: flex;
+    flex-direction: column;
+    padding: 28px 28px 28px;
+    gap: 24px;
+}
+
+.resumeToggle {
+    display: flex;
+    gap: 4px;
+    background: var(--color-bg);
+    border-radius: 10px;
+    padding: 3px;
+    align-self: flex-start;
+}
+
+.toggleBtn {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 7px 18px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.toggleActive {
+    background: var(--color-card);
+    color: var(--color-text);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.pillCloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-content: center;
+    flex: 1;
+}
+
+.pill {
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: default;
+}
+
+.pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.terminal {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    background: #1e1e1e;
+    overflow: hidden;
+}
+
+.terminal:hover {
+    background: #1e1e1e;
+}
+
+.terminalBar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.terminalDots {
+    display: flex;
+    gap: 6px;
+}
+
+.dotRed, .dotYellow, .dotGreen {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.dotRed { background: #ff5f57; }
+.dotYellow { background: #febc2e; }
+.dotGreen { background: #28c840; }
+
+.terminalTitle {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 600;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+}
+
+.terminalToggle {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.terminalTab {
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.terminalTabActive {
+    color: rgba(255, 255, 255, 0.9);
+    border-bottom: 2px solid #9cdcfe;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.terminalCode {
+    flex: 1;
+    padding: 20px 24px;
+    margin: 0;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 13px;
+    line-height: 1.8;
+    color: #9cdcfe;
+    overflow-y: auto;
+    white-space: pre;
+}
+
+.terminalCode::-webkit-scrollbar {
+    width: 4px;
+}
+
+.terminalCode::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
 }

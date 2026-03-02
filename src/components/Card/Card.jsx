@@ -84,7 +84,7 @@ function Card({ data, onFinderClick }) {
   return (
     <div className={`${styles.card} ${styles.cs}`} style={{ gridArea: data.area }}>
       <h2 className={styles.csName}>Hi, I'm Brandon!</h2>
-      <span className={styles.csSchool}>Computer Science [at] Northwestern University</span>
+      <span className={styles.csSchool}>Computer Science [at] Northwestern</span>
       <span className={styles.csDesc}>I'm a current first year at Northwestern studying CS and violin performance! My interests include web design, web development, and interfaces. Some of my hobbies include rock climbing, swimming, eating mexican food, and watching sci-fi movies.</span>
     </div>
   )
@@ -108,7 +108,7 @@ function Card({ data, onFinderClick }) {
         </div>
         <div className={styles.helloChartWrap}>
           <img
-            src="https://ghchart.rshah.org/7B2D8E/abrandonwang"
+            src="https://ghchart.rshah.org/0969da/abrandonwang"
             className={styles.helloChart}
             alt="GitHub contributions"
           />
@@ -140,6 +140,7 @@ function Card({ data, onFinderClick }) {
             </svg>
           </a>
         </div>
+
       </div>
     )
   }
@@ -164,6 +165,75 @@ function Card({ data, onFinderClick }) {
           <FinderWindow />
         </div>
       </div>
+    </div>
+  )
+}
+
+  if (data.type === 'resume') {
+  const [tab, setTab] = useState('classes')
+
+  return (
+    <div className={`${styles.card} ${styles.terminal}`} style={{ gridArea: data.area }}>
+      <div className={styles.terminalBar}>
+        <div className={styles.terminalDots}>
+          <span className={styles.dotRed} />
+          <span className={styles.dotYellow} />
+          <span className={styles.dotGreen} />
+        </div>
+        <span className={styles.terminalTitle}>brandon.json</span>
+      </div>
+      <div className={styles.terminalToggle}>
+        <button
+          className={`${styles.terminalTab} ${tab === 'classes' ? styles.terminalTabActive : ''}`}
+          onClick={() => setTab('classes')}
+        >
+          coursework
+        </button>
+        <button
+          className={`${styles.terminalTab} ${tab === 'experience' ? styles.terminalTabActive : ''}`}
+          onClick={() => setTab('experience')}
+        >
+          experience
+        </button>
+      </div>
+      <pre className={styles.terminalCode}>
+        {tab === 'classes' ? `{
+  "coursework": {
+    "cs": [
+      "CS 111  // Fundamentals I",
+      "CS 150  // Fundamentals 1.5",
+      "CS 211  // Fundamentals II",
+      "CS 212  // Math Foundations",
+      "CS 214  // Data Structures",
+      "CS 349  // Machine Learning"
+    ],
+    "engineering": [
+      "EA 1    // Engineering Analysis I",
+      "EA 2    // Engineering Analysis II",
+      "EA 3    // Engineering Analysis III"
+    ],
+    "design": [
+      "DSGN 1  // Design Thinking I",
+      "DSGN 2  // Design Thinking II"
+    ]
+  }
+}` : `{
+  "experience": {
+    "projects": [
+      {
+        "name": "Portfolio",
+        "stack": ["React", "CSS Modules", "GSAP"],
+        "type": "web"
+      },
+      {
+        "name": "Concentration",
+        "stack": ["JavaScript", "HTML", "CSS"],
+        "type": "game"
+      }
+    ]
+  }
+}`}
+      </pre>
     </div>
   )
 }

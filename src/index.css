@@ -2,17 +2,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inconsolata:wght@200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-    --color-bg: #e8e8e8;
-    --color-card: #fff;
-    --color-card-hover: #fff;
-    --color-text: #0f0f0f;
-    --color-text-secondary: rgba(15, 15, 15, 0.5);
-    --color-text-muted: rgba(15, 15, 15, 0.28);
-    --color-border: rgba(0, 0, 0, 0.07);
+    --color-bg: #f0f0f0;
+    --color-card: #ffffff;
+    --color-card-hover: #ffffff;
+    --color-text: #1d1d1f;
+    --color-text-secondary: rgba(0, 0, 0, 0.5);
+    --color-text-muted: rgba(0, 0, 0, 0.25);
+    --color-border: rgba(0, 0, 0, 0.08);
     --color-dark: #111111;
     --color-accent: #7B2D8E;
     --radius: 20px;
-    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-sans: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 *, *::before, *::after {
