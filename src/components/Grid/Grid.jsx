@@ -36,9 +36,20 @@ const cards = [
   title: 'Concentration',
   description: 'Memory card matching game with difficulty levels and a live timer',
   tags: ['JavaScript', 'CSS'],
-  color: '#2563eb',
   link: 'https://abrandonwang.github.io/card-game/',
   preview: 'https://abrandonwang.github.io/card-game/',
+},
+  {
+  id: 'brawl',
+  type: 'project',
+  area: 'brawl',
+  title: 'BrawlLens',
+  description: 'An analytics and scouting tool for Brawl Stars players',
+  tags: ['React', 'Next.js', 'TypeScript', 'Tailwind'],
+  bg: '#2a3550',
+  lightText: true,
+  wip: true,
+
 },
 ]
 
@@ -48,7 +59,7 @@ function Grid({ onFinderClick }) {
   useEffect(() => {
     const children = Array.from(gridRef.current.children)
     // Stagger by leftmost grid column so cards animate left → right
-    const colStart = [1, 2, 4, 2, 3, 1] // matches card order: intro,cs,hello,contact,finder,proj
+    const colStart = [1, 2, 4, 2, 3, 1, 1] // matches card order: intro,cs,hello,contact,resume,proj,brawl
     children.forEach((child, i) => {
       gsap.fromTo(child,
         { opacity: 0, x: -30, scale: 0.97 },

@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import styles from './Card.module.css'
 import FinderWindow from '../FinderWindow/FinderWindow'
 
@@ -9,6 +10,7 @@ function Card({ data, onFinderClick }) {
   const [finderDimensions, setFinderDimensions] = useState({ width: 1200, height: 800 })
   const [nowPlaying, setNowPlaying] = useState(null)
   const [showGithub, setShowGithub] = useState(false)
+  const [tab, setTab] = useState('classes')
   const previewRef = useRef(null)
 
   useEffect(() => {
@@ -170,8 +172,6 @@ function Card({ data, onFinderClick }) {
 }
 
   if (data.type === 'resume') {
-  const [tab, setTab] = useState('classes')
-
   return (
     <div className={`${styles.card} ${styles.terminal}`} style={{ gridArea: data.area }}>
       <div className={styles.terminalBar}>
@@ -239,16 +239,22 @@ function Card({ data, onFinderClick }) {
 }
 
 
-  // Project card (finder or other projects)
+  // Project card
+  const tc = data.lightText ? '#fff' : 'var(--color-text)'
+  const tc2 = data.lightText ? 'rgba(255,255,255,0.6)' : 'var(--color-text-secondary)'
+  const tcTag = data.lightText ? 'rgba(255,255,255,0.6)' : 'var(--color-text-secondary)'
+  const tcTagBorder = data.lightText ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.12)'
+  const tcArrow = data.lightText ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.25)'
+
   return (
   <div
     className={`${styles.card} ${styles.project}`}
-    style={{ gridArea: data.area }}
+    style={{ gridArea: data.area, ...(data.bg && { background: data.bg }) }}
     onClick={handleClick}
     onMouseMove={(e) => {
       if (previewRef.current) {
         previewRef.current.style.left = `${e.clientX + 20}px`
-        previewRef.current.style.top = `${e.clientY - 100}px`
+        previewRef.current.style.top = `${e.clientY - 130}px`
         previewRef.current.style.opacity = '1'
       }
     }}
@@ -258,28 +264,31 @@ function Card({ data, onFinderClick }) {
       }
     }}
   >
-    <span className={styles.projectNumber}>01</span>
+    <div className={styles.projectTop}>
+      {data.wip && <span className={styles.wipBadge}>In Progress</span>}
+      <span className={styles.arrow} style={{ color: tcArrow }}>↗</span>
+    </div>
     <div className={styles.projectBottom}>
-      <div>
-        <h2 className={styles.projectTitle}>Project Showcase: {data.title}</h2>
-        <p className={styles.projectDescription}>{data.description}</p>
-        {data.tags && (
-          <div className={styles.tags}>
-            {data.tags.map(tag => <span key={tag} className={styles.tag}>{tag}</span>)}
-          </div>
-        )}
-      </div>
-      <span className={styles.arrow}>↗</span>
+      <h2 className={styles.projectTitle} style={{ color: tc }}>{data.title}</h2>
+      <p className={styles.projectDescription} style={{ color: tc2 }}>{data.description}</p>
+      {data.tags && (
+        <div className={styles.tags}>
+          {data.tags.map(tag => (
+            <span key={tag} className={styles.tag} style={{ color: tcTag, borderColor: tcTagBorder }}>{tag}</span>
+          ))}
+        </div>
+      )}
     </div>
 
-    {data.preview && (
+    {data.preview && createPortal(
       <div ref={previewRef} className={styles.previewPopup}>
         <iframe
           src={data.preview}
           className={styles.previewIframe}
           tabIndex={-1}
         />
-      </div>
+      </div>,
+      document.body
     )}
   </div>
 )
