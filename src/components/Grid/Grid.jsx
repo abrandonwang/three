@@ -50,6 +50,7 @@ const cards = [
     lightText: true,
     wip: true,
     screenshot: '/images/ss1.png',
+    screenshot2: '/images/ss2.png',
 },
 ]
 

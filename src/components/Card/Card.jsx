@@ -284,20 +284,35 @@ function Card({ data, onFinderClick }) {
           <span className={styles.arrow} style={{ color: tcArrow }}>↗</span>
         </div>
         <div className={styles.screenshotsPanel}>
-          <div className={styles.macFrame}>
-            <div className={styles.macTopBar}>
-              <div className={styles.macDots}>
-                <span />
-                <span />
-                <span />
-              </div>
-              <div className={styles.macAddress}>
-                <span>{data.link || 'localhost:3000'}</span>
-              </div>
-            </div>
-            <img src={data.screenshot} alt={data.title} className={styles.macScreen} />
-          </div>
+  <div className={`${styles.macFrame} ${styles.macFrameTop}`}>
+    <div className={styles.macTopBar}>
+      <div className={styles.macDots}>
+        <span />
+        <span />
+        <span />
+      </div>
+      <div className={styles.macAddress}>
+        <span>{data.link || 'localhost:3000'}</span>
+      </div>
+    </div>
+    <img src={data.screenshot} alt={data.title} className={styles.macScreen} />
+  </div>
+  {data.screenshot2 && (
+    <div className={`${styles.macFrame} ${styles.macFrameBottom}`}>
+      <div className={styles.macTopBar}>
+        <div className={styles.macDots}>
+          <span />
+          <span />
+          <span />
         </div>
+        <div className={styles.macAddress}>
+          <span>{data.link || 'localhost:3000'}</span>
+        </div>
+      </div>
+      <img src={data.screenshot2} alt={data.title} className={styles.macScreen} />
+    </div>
+  )}
+</div>
       </>
     ) : (
       <>
