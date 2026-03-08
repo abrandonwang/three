@@ -8,40 +8,25 @@ function Card({ data, onFinderClick }) {
   const finderRef = useRef(null)
   const [finderScale, setFinderScale] = useState(0.5)
   const [finderDimensions, setFinderDimensions] = useState({ width: 1200, height: 800 })
-  const [nowPlaying, setNowPlaying] = useState(null)
-  const [showGithub, setShowGithub] = useState(false)
   const [tab, setTab] = useState('classes')
   const previewRef = useRef(null)
 
   useEffect(() => {
-    if (data.type !== 'cs') return
-    async function fetchNowPlaying() {
-      try {
-        const res = await fetch('/api/now-playing')
-        if (res.ok) setNowPlaying(await res.json())
-      } catch { /* no backend yet */ }
+    if (data.action === 'finder' && finderRef.current) {
+      function calcScale() {
+        const rect = finderRef.current.getBoundingClientRect()
+        const ratio = rect.width / rect.height
+        // Render at 2x the card size for crisp text
+        const renderHeight = 800
+        const renderWidth = renderHeight * ratio
+        setFinderDimensions({ width: renderWidth, height: renderHeight })
+        setFinderScale(rect.height / renderHeight)
+      }
+      calcScale()
+      window.addEventListener('resize', calcScale)
+      return () => window.removeEventListener('resize', calcScale)
     }
-    fetchNowPlaying()
-    const id = setInterval(fetchNowPlaying, 30000)
-    return () => clearInterval(id)
-  }, [data.type])
-
-  useEffect(() => {
-  if (data.action === 'finder' && finderRef.current) {
-    function calcScale() {
-      const rect = finderRef.current.getBoundingClientRect()
-      const ratio = rect.width / rect.height
-      // Render at 2x the card size for crisp text
-      const renderHeight = 800
-      const renderWidth = renderHeight * ratio
-      setFinderDimensions({ width: renderWidth, height: renderHeight })
-      setFinderScale(rect.height / renderHeight)
-    }
-    calcScale()
-    window.addEventListener('resize', calcScale)
-    return () => window.removeEventListener('resize', calcScale)
-  }
-}, [data.action])
+  }, [data.action])
 
   function handleClick() {
     if (data.action === 'finder') {
@@ -83,14 +68,14 @@ function Card({ data, onFinderClick }) {
 
   // CS @ Northwestern card (1 row, 2 cols)
   if (data.type === 'cs') {
-  return (
-    <div className={`${styles.card} ${styles.cs}`} style={{ gridArea: data.area }}>
-      <h2 className={styles.csName}>Hi, I'm Brandon!</h2>
-      <span className={styles.csSchool}>Computer Science [at] Northwestern</span>
-      <span className={styles.csDesc}>I'm a current first year at Northwestern studying CS and violin performance! My interests include web design, web development, and interfaces. Some of my hobbies include rock climbing, swimming, eating mexican food, and watching sci-fi movies.</span>
-    </div>
-  )
-}
+    return (
+      <div className={`${styles.card} ${styles.cs}`} style={{ gridArea: data.area }}>
+        <h2 className={styles.csName}>Hi, I'm Brandon!</h2>
+        <span className={styles.csSchool}>Computer Science [at] Northwestern</span>
+        <span className={styles.csDesc}>I'm a current first year at Northwestern studying CS and violin performance! My interests include web design, web development, and interfaces. Some of my hobbies include rock climbing, swimming, eating mexican food, and watching sci-fi movies.</span>
+      </div>
+    )
+  }
 
   // Hello card (1x1) — GitHub contributions
   if (data.type === 'hello') {
@@ -148,56 +133,56 @@ function Card({ data, onFinderClick }) {
   }
 
 
-    if (data.action === 'finder') {
-  return (
-    <div
-      ref={finderRef}
-      className={`${styles.card} ${styles.finderCard}`}
-      style={{ gridArea: data.area }}
-    >
-      <div className={styles.finderWrapper}>
-        <div
-          className={styles.finderScale}
-          style={{
-            width: `${finderDimensions.width}px`,
-            height: `${finderDimensions.height}px`,
-            transform: `scale(${finderScale})`,
-          }}
-        >
-          <FinderWindow />
+  if (data.action === 'finder') {
+    return (
+      <div
+        ref={finderRef}
+        className={`${styles.card} ${styles.finderCard}`}
+        style={{ gridArea: data.area }}
+      >
+        <div className={styles.finderWrapper}>
+          <div
+            className={styles.finderScale}
+            style={{
+              width: `${finderDimensions.width}px`,
+              height: `${finderDimensions.height}px`,
+              transform: `scale(${finderScale})`,
+            }}
+          >
+            <FinderWindow />
+          </div>
         </div>
       </div>
-    </div>
-  )
-}
+    )
+  }
 
   if (data.type === 'resume') {
-  return (
-    <div className={`${styles.card} ${styles.terminal}`} style={{ gridArea: data.area }}>
-      <div className={styles.terminalBar}>
-        <div className={styles.terminalDots}>
-          <span className={styles.dotRed} />
-          <span className={styles.dotYellow} />
-          <span className={styles.dotGreen} />
+    return (
+      <div className={`${styles.card} ${styles.terminal}`} style={{ gridArea: data.area }}>
+        <div className={styles.terminalBar}>
+          <div className={styles.terminalDots}>
+            <span className={styles.dotRed} />
+            <span className={styles.dotYellow} />
+            <span className={styles.dotGreen} />
+          </div>
+          <span className={styles.terminalTitle}>brandon.json</span>
         </div>
-        <span className={styles.terminalTitle}>brandon.json</span>
-      </div>
-      <div className={styles.terminalToggle}>
-        <button
-          className={`${styles.terminalTab} ${tab === 'classes' ? styles.terminalTabActive : ''}`}
-          onClick={() => setTab('classes')}
-        >
-          coursework
-        </button>
-        <button
-          className={`${styles.terminalTab} ${tab === 'experience' ? styles.terminalTabActive : ''}`}
-          onClick={() => setTab('experience')}
-        >
-          experience
-        </button>
-      </div>
-      <pre className={styles.terminalCode}>
-        {tab === 'classes' ? `{
+        <div className={styles.terminalToggle}>
+          <button
+            className={`${styles.terminalTab} ${tab === 'classes' ? styles.terminalTabActive : ''}`}
+            onClick={() => setTab('classes')}
+          >
+            coursework
+          </button>
+          <button
+            className={`${styles.terminalTab} ${tab === 'experience' ? styles.terminalTabActive : ''}`}
+            onClick={() => setTab('experience')}
+          >
+            experience
+          </button>
+        </div>
+        <pre className={styles.terminalCode}>
+          {tab === 'classes' ? `{
   "coursework": {
     "cs": [
       "CS 111  // Fundamentals I",
@@ -233,10 +218,10 @@ function Card({ data, onFinderClick }) {
     ]
   }
 }`}
-      </pre>
-    </div>
-  )
-}
+        </pre>
+      </div>
+    )
+  }
 
 
   // Project card

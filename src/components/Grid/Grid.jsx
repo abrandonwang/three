@@ -51,6 +51,7 @@ const cards = [
     wip: true,
     screenshot: '/images/ss1.png',
     screenshot2: '/images/ss2.png',
+    link: 'https://github.com/abrandonwang/brawl-tracker',
 },
 ]
 

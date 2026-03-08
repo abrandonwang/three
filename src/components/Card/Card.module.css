@@ -27,23 +27,6 @@
     transform: scale(1.0);
 }
 
-.introOverlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 30%, rgba(0, 0, 0, 0.2) 100%);
-    pointer-events: none;
-}
-
-.introContent {
-    position: relative;
-    z-index: 1;
-    padding: 36px 32px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    height: 100%;
-}
-
 /* ---- CS Card (1 row, 2 cols) ---- */
 /* ---- CS Card ---- */
 .cs {
@@ -79,49 +62,6 @@
     line-height: 1.6;
 }
 
-/* ---- Spotify Card ---- */
-.spotify {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 28px;
-}
-
-.spotifyTop {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.spotifyLogo {
-    width: 28px;
-    height: 28px;
-}
-
-.spotifyLabel {
-    font-size: 10px;
-    font-weight: 700;
-    color: #1DB954;
-    letter-spacing: 0.08em;
-}
-
-.spotifyInfo {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.spotifyTrack {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--color-text);
-}
-
-.spotifyArtist {
-    font-size: 14px;
-    color: var(--color-text-secondary);
-    font-weight: 500;
-}
 /* ---- Hello Card (1x1) — GitHub contributions ---- */
 .hello {
     display: flex;
@@ -182,19 +122,6 @@
 
 .hello:hover .helloHandle {
     transform: translateY(-4px);
-}
-
-.helloText {
-    font-size: 40px;
-    font-weight: 700;
-    color: var(--color-text);
-    letter-spacing: -0.02em;
-}
-
-.helloDescription {
-    font-size: 14px;
-    color: var(--color-text-secondary);
-    font-weight: 600;
 }
 
 /* ---- Contact Card (1x1) ---- */
@@ -351,188 +278,6 @@
     flex-shrink: 0;
 }
 
-.current {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
-    padding: 28px;
-}
-
-.currentLabel {
-    font-size: 10px;
-    font-weight: 700;
-    color: var(--color-text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-}
-
-.currentList {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.currentItem {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 14px;
-    color: var(--color-text-secondary);
-    font-weight: 500;
-}
-
-.currentEmoji {
-    font-size: 16px;
-    width: 20px;
-    text-align: center;
-    flex-shrink: 0;
-}
- 
-.loader {
-  --color-one: #ffbf48;
-  --color-two: #be4a1d;
-  --color-three: #ffbf4780;
-  --color-four: #bf4a1d80;
-  --color-five: #ffbf4740;
-  --time-animation: 2s;
-  --size: 0.5; /* You can change the size */
-  position: relative;
-  border-radius: 50%;
-  transform: scale(var(--size));
-  box-shadow:
-    0 0 25px 0 var(--color-three),
-    0 20px 50px 0 var(--color-four);
-  animation: colorize calc(var(--time-animation) * 3) ease-in-out infinite;
-}
-
-.loader::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border-top: solid 1px var(--color-one);
-  border-bottom: solid 1px var(--color-two);
-  background: linear-gradient(180deg, var(--color-five), var(--color-four));
-  box-shadow:
-    inset 0 10px 10px 0 var(--color-three),
-    inset 0 -10px 10px 0 var(--color-four);
-}
-
-.loader .box {
-  width: 100px;
-  height: 100px;
-  background: linear-gradient(
-    180deg,
-    var(--color-one) 30%,
-    var(--color-two) 70%
-  );
-  mask: url(#clipping);
-  -webkit-mask: url(#clipping);
-}
-
-.loader svg {
-  position: absolute;
-}
-
-.loader svg #clipping {
-  filter: contrast(15);
-  animation: roundness calc(var(--time-animation) / 2) linear infinite;
-}
-
-.loader svg #clipping polygon {
-  filter: blur(7px);
-}
-
-.loader svg #clipping polygon:nth-child(1) {
-  transform-origin: 75% 25%;
-  transform: rotate(90deg);
-}
-
-.loader svg #clipping polygon:nth-child(2) {
-  transform-origin: 50% 50%;
-  animation: rotation var(--time-animation) linear infinite reverse;
-}
-
-.loader svg #clipping polygon:nth-child(3) {
-  transform-origin: 50% 60%;
-  animation: rotation var(--time-animation) linear infinite;
-  animation-delay: calc(var(--time-animation) / -3);
-}
-
-.loader svg #clipping polygon:nth-child(4) {
-  transform-origin: 40% 40%;
-  animation: rotation var(--time-animation) linear infinite reverse;
-}
-
-.loader svg #clipping polygon:nth-child(5) {
-  transform-origin: 40% 40%;
-  animation: rotation var(--time-animation) linear infinite reverse;
-  animation-delay: calc(var(--time-animation) / -2);
-}
-
-.loader svg #clipping polygon:nth-child(6) {
-  transform-origin: 60% 40%;
-  animation: rotation var(--time-animation) linear infinite;
-}
-
-.loader svg #clipping polygon:nth-child(7) {
-  transform-origin: 60% 40%;
-  animation: rotation var(--time-animation) linear infinite;
-  animation-delay: calc(var(--time-animation) / -1.5);
-}
-
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes roundness {
-  0% {
-    filter: contrast(15);
-  }
-  20% {
-    filter: contrast(3);
-  }
-  40% {
-    filter: contrast(3);
-  }
-  60% {
-    filter: contrast(15);
-  }
-  100% {
-    filter: contrast(15);
-  }
-}
-
-@keyframes colorize {
-  0% {
-    filter: hue-rotate(0deg);
-  }
-  20% {
-    filter: hue-rotate(-30deg);
-  }
-  40% {
-    filter: hue-rotate(-60deg);
-  }
-  60% {
-    filter: hue-rotate(-90deg);
-  }
-  80% {
-    filter: hue-rotate(-45deg);
-  }
-  100% {
-    filter: hue-rotate(0deg);
-  }
-}
-
 /* ---- Project Split Layout (with screenshots) ---- */
 .projectSplit {
     flex-direction: row !important;
@@ -685,64 +430,6 @@
     transform: scale(0.45);
     transform-origin: top left;
     pointer-events: none;
-}
-
-.resume {
-    display: flex;
-    flex-direction: column;
-    padding: 28px 28px 28px;
-    gap: 24px;
-}
-
-.resumeToggle {
-    display: flex;
-    gap: 4px;
-    background: var(--color-bg);
-    border-radius: 10px;
-    padding: 3px;
-    align-self: flex-start;
-}
-
-.toggleBtn {
-    font-family: var(--font-sans);
-    font-size: 12px;
-    font-weight: 700;
-    padding: 7px 18px;
-    border: none;
-    border-radius: 8px;
-    background: transparent;
-    color: var(--color-text-muted);
-    cursor: pointer;
-    transition: all 0.25s ease;
-}
-
-.toggleActive {
-    background: var(--color-card);
-    color: var(--color-text);
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
-}
-
-.pillCloud {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    align-content: center;
-    flex: 1;
-}
-
-.pill {
-    padding: 10px 22px;
-    border-radius: 50px;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    cursor: default;
-}
-
-.pill:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .terminal {
