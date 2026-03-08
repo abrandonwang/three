@@ -1,0 +1,15 @@
+.container {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    background: var(--color-header);
+}
+
+.image {
+    max-width: 100%;
+    max-height: 50vh;
+    border-radius: 8px;
+    object-fit: contain;
+}
