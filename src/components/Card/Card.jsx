@@ -211,6 +211,11 @@ function Card({ data, onFinderClick }) {
         "type": "web"
       },
       {
+        "name": "BrawlLens",
+        "stack": ["React", "Next.js", "TypeScript", "Tailwind"],
+        "type": "web"
+      },
+      {
         "name": "Concentration",
         "stack": ["JavaScript", "HTML", "CSS"],
         "type": "game"
