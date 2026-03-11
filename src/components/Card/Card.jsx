@@ -207,7 +207,7 @@ function Card({ data, onFinderClick }) {
     "projects": [
       {
         "name": "Portfolio",
-        "stack": ["React", "CSS Modules", "GSAP"],
+        "stack": ["React", "GSAP"],
         "type": "web"
       },
       {
@@ -217,7 +217,7 @@ function Card({ data, onFinderClick }) {
       },
       {
         "name": "Concentration",
-        "stack": ["JavaScript", "HTML", "CSS"],
+        "stack": ["JavaScript"],
         "type": "game"
       }
     ]
