@@ -80,6 +80,7 @@ export default function App() {
         <Section delay={0.2}>
           <h2 className="text-[13px] uppercase tracking-widest text-zinc-400 dark:text-white/40 font-semibold mb-5">Work</h2>
           <div className="flex flex-col">
+            <ProjectItem href="https://brandonwang.work" title="Portfolio" description="This site" />
             <ProjectItem to="/concentration" title="Concentration" description="Memory matching game" />
             <ProjectItem to="/brawllens" title="BrawlLens" description="Brawl Stars analytics" wip />
           </div>
