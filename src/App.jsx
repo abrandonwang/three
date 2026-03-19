@@ -13,7 +13,19 @@ const linkClass = "text-zinc-800 dark:text-white font-medium underline underline
 export default function App() {
   const nameRef = useRef(null)
   const [stickyVisible, setStickyVisible] = useState(false)
+  const [emailCopied, setEmailCopied] = useState(false)
+  const [emailHovered, setEmailHovered] = useState(false)
   const { isDark, setIsDark } = useTheme()
+
+  const copyEmailToClipboard = () => {
+    navigator.clipboard.writeText('abrandonwang@gmail.com')
+    setEmailCopied(true)
+  }
+
+  const handleEmailMouseLeave = () => {
+    setEmailHovered(false)
+    setEmailCopied(false)
+  }
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -26,6 +38,9 @@ export default function App() {
 
   return (
     <>
+      {/* Removed redundant <Router> and <ScrollToTop /> from here 
+          as they are already globally active in main.jsx */}
+          
       <AnimatePresence>
         {stickyVisible && (
           <motion.div
@@ -35,7 +50,7 @@ export default function App() {
             transition={{ duration: 0.25, ease: 'easeOut' }}
             className="fixed top-0 left-0 right-0 z-50"
           >
-            <div className="max-w-[640px] mx-auto px-6 py-4 flex justify-between items-center border-b border-zinc-100 dark:border-white/5 bg-white/90 dark:bg-black/90 backdrop-blur-sm">
+            <div className="max-w-[640px] mx-auto px-6 flex justify-between items-center border-b border-zinc-100 dark:border-white/5 bg-white/90 dark:bg-black/90 backdrop-blur-sm">
               <span className="text-[20px] font-semibold tracking-tight text-[#3b82f6]">Brandon Wang</span>
               <span className="text-[20px] text-zinc-600 dark:text-white">Software Engineer</span>
             </div>
@@ -70,10 +85,10 @@ export default function App() {
             <a href="https://github.com/abrandonwang" target="_blank" rel="noopener noreferrer" className={linkClass}>
               GitHub
             </a>
-            <a href="mailto:abrandonwang@gmail.com" className={`group relative inline-flex ${linkClass}`}>
-              <span className="whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">abrandonwang@gmail.com</span>
+            <button onClick={copyEmailToClipboard} onMouseEnter={() => setEmailHovered(true)} onMouseLeave={handleEmailMouseLeave} className={`group relative inline-flex ${linkClass} cursor-pointer bg-none border-none p-0`}>
+              <span className="whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">{emailCopied && emailHovered ? 'Copied!' : 'abrandonwang@gmail.com'}</span>
               <span className="absolute left-0 top-0 opacity-100 group-hover:opacity-0 transition-opacity underline underline-offset-4 decoration-zinc-400 dark:decoration-white/30">Email</span>
-            </a>
+            </button>
           </div>
         </Section>
 

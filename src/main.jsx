@@ -8,11 +8,14 @@ import Northwestern from './pages/Northwestern'
 import Everyday from './pages/Everyday'
 import Concentration from './pages/Concentration'
 import BrawlLens from './pages/BrawlLens'
+import ScrollToTop from './components/ScrollToTop' // Import it here
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <HashRouter>
       <ThemeProvider>
+        {/* ScrollToTop sits here to watch the HashRouter */}
+        <ScrollToTop /> 
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/northwestern" element={<Northwestern />} />
