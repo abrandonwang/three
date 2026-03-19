@@ -8,11 +8,10 @@ const PageLayout = ({ title, subtitle, children }) => {
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35, ease: 'easeOut' }}
-        className="relative max-w-[640px] mx-auto px-6"
-        style={{ paddingTop: '12vh', paddingBottom: '12vh' }}
+        className="relative max-w-[640px] mx-auto px-6 pt-24 pb-24"
       >
         {/* Back button — sits outside the container to the left */}
-        <div className="absolute left-0 top-24 -translate-x-full pr-8">
+        <div className="md:absolute md:left-0 md:top-24 md:-translate-x-full pb-5 md:pr-8">
           <Link
             to="/"
             className="group flex items-center gap-1.5 transition-colors"
