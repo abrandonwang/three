@@ -8,7 +8,7 @@ const PageLayout = ({ title, subtitle, children }) => {
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35, ease: 'easeOut' }}
-        className="relative max-w-[640px] mx-auto px-6 pt-24 pb-24"
+        className="relative max-w-[640px] mx-auto px-6 pt-10 pb-10 md:pt-24 md:pb-24"
       >
         {/* Back button — sits outside the container to the left */}
         <div className="md:absolute md:left-0 md:top-24 md:-translate-x-full pb-5 md:pr-8">
