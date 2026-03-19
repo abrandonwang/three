@@ -26,7 +26,7 @@ export default function BrawlLens() {
         <div>
           <span className="text-[12px] uppercase tracking-widest text-zinc-400 dark:text-white/40 font-semibold">Link</span>
           <p className="mt-2">
-            <a href="https://github.com/abrandonwang/brawllens" target="_blank" rel="noopener noreferrer" className={linkClass}>
+            <a href="https://brawllens.com" target="_blank" rel="noopener noreferrer" className={linkClass}>
               brawllens.com
             </a>
           </p>
