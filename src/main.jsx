@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { HashRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ThemeProvider } from './context/ThemeContext'
 import './styles/index.css'
 import App from './App'
@@ -12,9 +12,9 @@ import ScrollToTop from './components/ScrollToTop' // Import it here
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <HashRouter>
+    <BrowserRouter>
       <ThemeProvider>
-        {/* ScrollToTop sits here to watch the HashRouter */}
+        {/* ScrollToTop sits here to watch the BrowserRouter */}
         <ScrollToTop /> 
         <Routes>
           <Route path="/" element={<App />} />
@@ -24,6 +24,6 @@ createRoot(document.getElementById('root')).render(
           <Route path="/brawllens" element={<BrawlLens />} />
         </Routes>
       </ThemeProvider>
-    </HashRouter>
+    </BrowserRouter>
   </StrictMode>
 )

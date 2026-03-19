@@ -70,7 +70,7 @@ export default function App() {
               {isDark ? <Sun size={14} strokeWidth={1.5} /> : <Moon size={14} strokeWidth={1.5} />}
             </button>
           </div>
-          <p className="text-[20px] text-zinc-600 dark:text-white">Software Engineer</p>
+          <p className="text-[18px] text-zinc-600 dark:text-white">Software Engineer</p>
 
           <div className="mt-8 space-y-4 text-[17px] leading-relaxed text-zinc-700 dark:text-white/80">
             <p>
