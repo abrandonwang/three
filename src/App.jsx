@@ -101,7 +101,7 @@ export default function App() {
           </div>
         </Section>
 
-        <Section delay={0.3}>
+        <Section delay={0.3} last>
           <Chat />
         </Section>
       </Layout>
