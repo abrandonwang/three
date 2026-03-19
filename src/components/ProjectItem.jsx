@@ -18,15 +18,17 @@ const ProjectItem = ({ title, description, href, to, wip }) => {
         <span className="text-[16px] text-zinc-400 dark:text-white/40">
           {description}
         </span>
+      </div>
+      <div className="flex items-center gap-2">
         {wip && (
-          <span className="text-[11px] uppercase tracking-wider font-semibold text-zinc-300 dark:text-white/20">
-            wip
+          <span className="text-[14px] text-zinc-300 dark:text-white/20 opacity-0 group-hover:opacity-100 transition-all">
+            in progress
           </span>
         )}
+        <span className="text-zinc-300 dark:text-white/20 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all">
+          →
+        </span>
       </div>
-      <span className="text-zinc-300 dark:text-white/20 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all">
-        →
-      </span>
     </Wrapper>
   )
 }
