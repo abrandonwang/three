@@ -58,8 +58,6 @@ export default function App() {
         <Section delay={0.1}>
           <div ref={nameRef} className="flex items-center justify-between mb-1">
             <h1 className="text-[20px] font-semibold tracking-tight text-[#3b82f6]">Brandon Wang</h1>
-            
-            {/* EXACT ALEX SAFAYAN TOGGLE RECREATION */}
             <button
               onClick={() => setIsDark(!isDark)}
               type="button"
@@ -67,31 +65,30 @@ export default function App() {
               title={isDark ? "Activate Light Mode" : "Activate Dark Mode"}
               aria-label="Dark mode toggle"
             >
-              <div className="relative h-[20px] w-[20px] rounded-full overflow-hidden group-active:scale-90 transition-transform duration-200">
-                {/* 1. THE MAIN CIRCLE & RAYS CONTAINER */}
-                <div className={`absolute inset-0 transition-transform duration-300 will-change-transform ${!isDark ? 'group-hover:scale-60' : ''}`}>
-                  
-                  {/* The actual circle shape */}
-                  <div className="absolute inset-0 rounded-full bg-zinc-800 dark:bg-white group-hover:bg-[#3b82f6] transition-colors duration-300" />
-                  
-                  {/* SUN RAYS: Visible ONLY on hover when in Light Mode */}
-                  <div className={`absolute inset-0 transition-opacity duration-300 ${!isDark ? 'opacity-0 group-hover:opacity-100' : 'opacity-0'}`}>
-                    {/* Horizontal ray */}
-                    <div className="absolute top-[10px] left-[-10px] w-[40px] h-[2px] bg-zinc-800 dark:bg-white group-hover:bg-[#3b82f6] -translate-y-1/2" />
-                    {/* Vertical ray */}
-                    <div className="absolute top-[-10px] left-[10px] w-[2px] h-[40px] bg-zinc-800 dark:bg-white group-hover:bg-[#3b82f6] -translate-x-1/2" />
-                    {/* Diagonal 1 */}
-                    <div className="absolute top-[10px] left-[10px] w-[40px] h-[2px] bg-zinc-800 dark:bg-white group-hover:bg-[#3b82f6] -translate-x-1/2 -translate-y-1/2 rotate-45" />
-                    {/* Diagonal 2 */}
-                    <div className="absolute top-[10px] left-[10px] w-[40px] h-[2px] bg-zinc-800 dark:bg-white group-hover:bg-[#3b82f6] -translate-x-1/2 -translate-y-1/2 -rotate-45" />
-                  </div>
-                </div>
-
-                {/* 2. THE MOON MASK: Slides in ONLY on hover when in Dark Mode */}
+              <div className="relative h-5 w-5 rounded-full overflow-hidden group-active:scale-90 transition-transform duration-200">
+                
+                {/* Main Body (Sun/Moon) */}
                 <div 
-                  className={`absolute w-[20px] h-[20px] rounded-full bg-white dark:bg-[#09090b] transition-transform duration-300 ease-in-out will-change-transform
-                    ${isDark ? 'translate-x-[30px] group-hover:translate-x-[7px] group-hover:translate-y-[-4px]' : 'translate-x-[30px]'}
+                  className={`absolute inset-0 rounded-full transition-colors duration-500 ease-in-out
+                    ${isDark 
+                      ? 'bg-white' 
+                      : 'bg-zinc-800 group-hover:bg-blue-600'
+                    }
                   `} 
+                />
+
+                {/* The Mask (The Bite) */}
+                <div
+                  className={`absolute inset-0 rounded-full will-change-transform transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)]
+                    ${isDark 
+                      ? 'bg-[#09090b]' // Must match your dark theme background
+                      : 'bg-white'      // Must match your light theme background
+                    }
+                    ${isDark
+                      ? '-translate-x-[100%] group-hover:-translate-x-[45%]' // Slides in from Left
+                      : 'translate-x-[100%] group-hover:translate-x-[45%]'   // Slides in from Right
+                    }
+                  `}
                 />
               </div>
             </button>
