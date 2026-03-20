@@ -1,7 +1,6 @@
 import { useRef, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Moon, Sun } from 'lucide-react'
 import { useTheme } from './context/ThemeContext'
 import Layout from './components/Layout'
 import Section from './components/Section'
@@ -38,9 +37,6 @@ export default function App() {
 
   return (
     <>
-      {/* Removed redundant <Router> and <ScrollToTop /> from here 
-          as they are already globally active in main.jsx */}
-          
       <AnimatePresence>
         {stickyVisible && (
           <motion.div
@@ -62,13 +58,45 @@ export default function App() {
         <Section delay={0.1}>
           <div ref={nameRef} className="flex items-center justify-between mb-1">
             <h1 className="text-[20px] font-semibold tracking-tight text-[#3b82f6]">Brandon Wang</h1>
+            
+            {/* EXACT ALEX SAFAYAN TOGGLE RECREATION */}
             <button
               onClick={() => setIsDark(!isDark)}
-              className="text-zinc-400 dark:text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors"
-              aria-label="Toggle theme"
+              type="button"
+              className="relative block w-fit h-fit cursor-pointer m-0 p-1 group"
+              title={isDark ? "Activate Light Mode" : "Activate Dark Mode"}
+              aria-label="Dark mode toggle"
             >
-              {isDark ? <Sun size={14} strokeWidth={1.5} /> : <Moon size={14} strokeWidth={1.5} />}
+              <div className="relative h-[20px] w-[20px] rounded-full overflow-hidden group-active:scale-90 transition-transform duration-200">
+                {/* 1. THE MAIN CIRCLE & RAYS CONTAINER */}
+                <div className={`absolute inset-0 transition-transform duration-300 will-change-transform ${!isDark ? 'group-hover:scale-60' : ''}`}>
+                  
+                  {/* The actual circle shape */}
+                  <div className="absolute inset-0 rounded-full bg-zinc-800 dark:bg-white group-hover:bg-[#3b82f6] transition-colors duration-300" />
+                  
+                  {/* SUN RAYS: Visible ONLY on hover when in Light Mode */}
+                  <div className={`absolute inset-0 transition-opacity duration-300 ${!isDark ? 'opacity-0 group-hover:opacity-100' : 'opacity-0'}`}>
+                    {/* Horizontal ray */}
+                    <div className="absolute top-[10px] left-[-10px] w-[40px] h-[2px] bg-zinc-800 dark:bg-white group-hover:bg-[#3b82f6] -translate-y-1/2" />
+                    {/* Vertical ray */}
+                    <div className="absolute top-[-10px] left-[10px] w-[2px] h-[40px] bg-zinc-800 dark:bg-white group-hover:bg-[#3b82f6] -translate-x-1/2" />
+                    {/* Diagonal 1 */}
+                    <div className="absolute top-[10px] left-[10px] w-[40px] h-[2px] bg-zinc-800 dark:bg-white group-hover:bg-[#3b82f6] -translate-x-1/2 -translate-y-1/2 rotate-45" />
+                    {/* Diagonal 2 */}
+                    <div className="absolute top-[10px] left-[10px] w-[40px] h-[2px] bg-zinc-800 dark:bg-white group-hover:bg-[#3b82f6] -translate-x-1/2 -translate-y-1/2 -rotate-45" />
+                  </div>
+                </div>
+
+                {/* 2. THE MOON MASK: Slides in ONLY on hover when in Dark Mode */}
+                <div 
+                  className={`absolute w-[20px] h-[20px] rounded-full bg-white dark:bg-[#09090b] transition-transform duration-300 ease-in-out will-change-transform
+                    ${isDark ? 'translate-x-[30px] group-hover:translate-x-[7px] group-hover:translate-y-[-4px]' : 'translate-x-[30px]'}
+                  `} 
+                />
+              </div>
             </button>
+            {/* END TOGGLE */}
+
           </div>
           <p className="text-[18px] text-zinc-600 dark:text-white">Software Engineer</p>
 
