@@ -1,6 +1,5 @@
 import { useRef, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { AnimatePresence, motion } from 'framer-motion'
 import { useTheme } from './context/ThemeContext'
 import Layout from './components/Layout'
 import Section from './components/Section'
@@ -37,25 +36,17 @@ export default function App() {
 
   return (
     <>
-      <AnimatePresence>
-        {stickyVisible && (
-          <motion.div
-            initial={{ opacity: 0, y: -6 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -6 }}
-            transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="fixed top-0 left-0 right-0 z-50"
-          >
+      {stickyVisible && (
+          <div className="fixed top-0 left-0 right-0 z-50">
             <div className="max-w-[640px] mx-auto px-6 flex justify-between items-center border-b border-zinc-100 dark:border-white/5 bg-white/90 dark:bg-black/90 backdrop-blur-sm">
               <span className="text-[20px] font-semibold tracking-tight text-[#3b82f6]">Brandon Wang</span>
               <span className="text-[20px] text-zinc-600 dark:text-white">Software Engineer</span>
             </div>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
 
       <Layout>
-        <Section delay={0.1}>
+        <Section>
           <div ref={nameRef} className="flex items-center justify-between mb-1">
             <h1 className="text-[20px] font-semibold tracking-tight text-[#3b82f6]">Brandon Wang</h1>
             <button
@@ -117,7 +108,7 @@ export default function App() {
           </div>
         </Section>
 
-        <Section delay={0.2}>
+        <Section>
           <h2 className="text-[13px] uppercase tracking-widest text-zinc-400 dark:text-white/40 font-semibold mb-5">Work</h2>
           <div className="flex flex-col">
             <ProjectItem to="/portfolio" title="Portfolio" description="This site" />
@@ -126,7 +117,7 @@ export default function App() {
           </div>
         </Section>
 
-        <Section delay={0.3} last>
+        <Section last>
           <Chat />
         </Section>
       </Layout>
