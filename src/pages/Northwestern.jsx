@@ -136,7 +136,7 @@ export default function Northwestern() {
                 className={`px-3 py-1.5 rounded-full text-[13px] font-medium whitespace-nowrap transition-colors ${
                   activeQuarter === q
                     ? 'text-[#3b82f6] bg-blue-50 dark:bg-blue-500/10'
-                    : 'text-zinc-500 dark:text-white/40 hover:text-zinc-800 dark:hover:text-white/70'
+                    : 'text-zinc-500 dark:text-white/60 hover:text-zinc-900 dark:hover:text-white'
                 }`}
               >
                 {q}
@@ -150,8 +150,8 @@ export default function Northwestern() {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-2.5 py-1 rounded-md text-[12px] font-medium border transition-colors ${
                   activeCategory === cat
-                    ? 'text-[#3b82f6] border-[#3b82f6]/40'
-                    : 'text-zinc-400 dark:text-white/30 border-zinc-200 dark:border-white/10 hover:border-zinc-400 dark:hover:border-white/30 hover:text-zinc-700 dark:hover:text-white/60'
+                    ? 'text-[#3b82f6] border-[#3b82f6]/60 bg-blue-50 dark:bg-blue-500/10'
+                    : 'text-zinc-500 dark:text-white/60 border-zinc-300 dark:border-white/20 hover:border-zinc-500 dark:hover:border-white/40 hover:text-zinc-800 dark:hover:text-white'
                 }`}
               >
                 {cat}
@@ -167,8 +167,8 @@ export default function Northwestern() {
           grouped.map(({ quarter, courses }) => (
             <div key={quarter}>
               {activeQuarter === 'All' && (
-                <div className="px-4 py-2 bg-zinc-50 dark:bg-white/[0.02] border-b border-zinc-200 dark:border-white/10">
-                  <span className="text-[11px] uppercase tracking-widest text-zinc-400 dark:text-white/30 font-semibold">
+                <div className="px-4 py-2 bg-zinc-50 dark:bg-white/[0.03] border-b border-zinc-200 dark:border-white/10">
+                  <span className="text-[11px] uppercase tracking-widest text-zinc-500 dark:text-white/50 font-semibold">
                     {quarter}
                   </span>
                 </div>
@@ -186,26 +186,26 @@ export default function Northwestern() {
                           <span className="text-[15px] font-medium text-zinc-900 dark:text-white group-hover:text-[#3b82f6] transition-colors shrink-0">
                             {course.code}
                           </span>
-                          <span className="text-[15px] text-zinc-400 dark:text-white/40 truncate">
+                          <span className="text-[15px] text-zinc-600 dark:text-white/70 truncate">
                             {course.title}
                           </span>
                         </div>
-                        <span className="text-[12px] text-zinc-300 dark:text-white/20 opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
+                        <span className="text-[12px] text-zinc-400 dark:text-white/40 group-hover:text-[#3b82f6] transition-colors shrink-0">
                           {isOpen ? '↑' : '↓'}
                         </span>
                       </div>
                     </button>
 
                     {isOpen && (
-                      <div className="px-4 pb-5 bg-zinc-50 dark:bg-white/[0.02]">
-                        <p className="text-[15px] text-zinc-600 dark:text-white/70 leading-relaxed mb-4">
+                      <div className="px-4 pb-5 bg-zinc-50 dark:bg-white/[0.03]">
+                        <p className="text-[15px] text-zinc-600 dark:text-white/80 leading-relaxed mb-4">
                           {course.description}
                         </p>
                         <div className="flex flex-wrap gap-2">
                           {course.tags.map(tag => (
                             <span
                               key={tag}
-                              className="px-2.5 py-1 rounded-md text-[12px] font-medium text-zinc-500 dark:text-white/40 bg-zinc-100 dark:bg-white/5"
+                              className="px-2.5 py-1 rounded-md text-[12px] font-medium text-zinc-600 dark:text-white/60 bg-zinc-200 dark:bg-white/10"
                             >
                               {tag}
                             </span>
