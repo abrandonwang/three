@@ -7,6 +7,7 @@ export default {
         background: '#000000',
         foreground: '#888888',
         card: '#111111',
+        primary: '#3b82f6',
       },
       fontFamily: {
         sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],

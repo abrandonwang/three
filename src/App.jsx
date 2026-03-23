@@ -62,37 +62,22 @@ export default function App() {
               onClick={() => setIsDark(!isDark)}
               type="button"
               className="relative block w-fit h-fit cursor-pointer m-0 p-1 group"
-              title={isDark ? "Activate Light Mode" : "Activate Dark Mode"}
+              title={isDark ? "Light mode" : "Dark mode"}
               aria-label="Dark mode toggle"
             >
-              <div className="relative h-5 w-5 rounded-full overflow-hidden group-active:scale-90 transition-transform duration-200">
-                
-                {/* Main Body (Sun/Moon) */}
-                <div 
-                  className={`absolute inset-0 rounded-full transition-colors duration-500 ease-in-out
-                    ${isDark 
-                      ? 'bg-white' 
-                      : 'bg-zinc-800 group-hover:bg-blue-600'
-                    }
-                  `} 
-                />
-
-                {/* The Mask (The Bite) */}
-                <div
-                  className={`absolute inset-0 rounded-full will-change-transform transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)]
-                    ${isDark 
-                      ? 'bg-[#09090b]' // Must match your dark theme background
-                      : 'bg-white'      // Must match your light theme background
-                    }
-                    ${isDark
-                      ? '-translate-x-[100%] group-hover:-translate-x-[45%]' // Slides in from Left
-                      : 'translate-x-[100%] group-hover:translate-x-[45%]'   // Slides in from Right
-                    }
-                  `}
-                />
+              <div className="relative h-[20px] w-[20px] rounded-full overflow-hidden group-active:scale-90 transition-transform">
+                <div className="absolute inset-0 transition-transform will-change-transform group-hover:scale-[0.6]">
+                  <div className="absolute inset-0 rounded-full bg-foreground group-hover:bg-primary"></div>
+                  <div className="absolute inset-0 transition-opacity opacity-0 group-hover:opacity-100" aria-hidden="true">
+                    <div className="absolute top-[10px] left-[-10px] w-[40px] h-[3px] bg-foreground group-hover:bg-primary -translate-y-1/2"></div>
+                    <div className="absolute top-[-10px] left-[10px] w-[3px] h-[40px] bg-foreground group-hover:bg-primary -translate-x-1/2"></div>
+                    <div className="absolute top-[10px] left-[10px] w-[40px] h-[3px] bg-foreground group-hover:bg-primary -translate-x-1/2 -translate-y-1/2 rotate-45"></div>
+                    <div className="absolute top-[10px] left-[10px] w-[40px] h-[3px] bg-foreground group-hover:bg-primary -translate-x-1/2 -translate-y-1/2 -rotate-45"></div>
+                  </div>
+                  <div className="absolute w-[20px] h-[20px] rounded-full bg-background transition-transform translate-y-[0px] translate-x-[30px]"></div>
+                </div>
               </div>
             </button>
-            {/* END TOGGLE */}
 
           </div>
           <p className="text-[18px] text-zinc-600 dark:text-white">Software Engineer</p>

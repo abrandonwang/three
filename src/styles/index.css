@@ -1,6 +1,13 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
+@theme {
+  --color-background: #000000;
+  --color-foreground: #888888;
+  --color-card: #111111;
+  --color-primary: #3b82f6;
+}
+
 * {
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
