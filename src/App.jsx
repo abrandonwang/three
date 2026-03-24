@@ -53,20 +53,21 @@ export default function App() {
               onClick={() => setIsDark(!isDark)}
               type="button"
               className="relative block w-fit h-fit cursor-pointer m-0 p-1 group"
-              title={isDark ? "Light mode" : "Dark mode"}
+              title={isDark ? "Activate Light Mode" : "Activate Dark Mode"}
               aria-label="Dark mode toggle"
             >
-              <div className="relative h-[20px] w-[20px] rounded-full overflow-hidden group-active:scale-90 transition-transform">
-                <div className="absolute inset-0 transition-transform will-change-transform group-hover:scale-[0.6]">
-                  <div className="absolute inset-0 rounded-full bg-foreground group-hover:bg-primary"></div>
-                  <div className="absolute inset-0 transition-opacity opacity-0 group-hover:opacity-100" aria-hidden="true">
-                    <div className="absolute top-[10px] left-[-10px] w-[40px] h-[3px] bg-foreground group-hover:bg-primary -translate-y-1/2"></div>
-                    <div className="absolute top-[-10px] left-[10px] w-[3px] h-[40px] bg-foreground group-hover:bg-primary -translate-x-1/2"></div>
-                    <div className="absolute top-[10px] left-[10px] w-[40px] h-[3px] bg-foreground group-hover:bg-primary -translate-x-1/2 -translate-y-1/2 rotate-45"></div>
-                    <div className="absolute top-[10px] left-[10px] w-[40px] h-[3px] bg-foreground group-hover:bg-primary -translate-x-1/2 -translate-y-1/2 -rotate-45"></div>
-                  </div>
-                  <div className="absolute w-[20px] h-[20px] rounded-full bg-background transition-transform translate-y-[0px] translate-x-[30px]"></div>
-                </div>
+              <div className="relative h-[20px] w-[20px] rounded-full overflow-hidden group-active:scale-90 transition-transform duration-150 ease-out">
+                {/* Main circle */}
+                <div className="absolute inset-0 rounded-full bg-zinc-800 dark:bg-white group-hover:bg-[#3b82f6] transition-colors duration-[1400ms] ease-[cubic-bezier(0.4,0,0.2,1)]" />
+                {/* Bite mask */}
+                <div
+                  className={`absolute w-[20px] h-[20px] rounded-full bg-white dark:bg-[#09090b] transition-transform duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform
+                    ${isDark
+                      ? 'translate-x-[30px] group-hover:translate-x-[10px]'
+                      : 'translate-x-[-30px] group-hover:translate-x-[-10px]'
+                    }
+                  `}
+                />
               </div>
             </button>
 
