@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import PageLayout from '../components/PageLayout'
 
 const QUARTERS = ['Fall 2025', 'Winter 2026', 'Spring 2026']
-const CATEGORIES = ['Computer Science', 'Engineering Analysis', 'Design']
+const CATEGORIES = ['Computer Science', 'Engineering Analysis', 'Electrical Engineering', 'Design']
 
 const COURSES = [
   {
@@ -69,13 +69,13 @@ const COURSES = [
     tags: ['HCD', 'Prototyping', 'Ideation'],
   },
   {
-    id: 'ea3',
-    code: 'EA 3',
-    title: 'Engineering Analysis III',
+    id: 'ee202',
+    code: 'EE 202',
+    title: 'Introduction to Electrical Engineering',
     quarter: 'Spring 2026',
-    category: 'Engineering Analysis',
-    description: 'Differential equations and their applications. First and second-order ODEs, Laplace transforms, and systems of equations.',
-    tags: ['Differential Equations', 'ODEs', 'Laplace Transforms'],
+    category: 'Electrical Engineering',
+    description: 'Fundamentals of electrical engineering including circuit analysis, Ohm\'s law, Kirchhoff\'s laws, AC/DC circuits, and an introduction to signals and systems.',
+    tags: ['Circuits', 'AC/DC', 'Signals', 'Systems'],
   },
   {
     id: 'cs211',

@@ -79,7 +79,7 @@ export default function App() {
               Currently at <Link to="/northwestern" className={linkClass}>Northwestern</Link> building interfaces for the web. I learn something new <Link to="/everyday" className={linkClass}>everyday</Link>.
             </p>
             <p>
-              In June 2028, I will graduate from Northwestern University with a BS in Computer Science and a BM in Music Performance.
+              In June 2028, I will graduate from Northwestern University with a BS in Computer Engineering and a BM in Music Performance.
             </p>
           </div>
 
