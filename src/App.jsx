@@ -98,7 +98,7 @@ export default function App() {
           <h2 className="text-[13px] uppercase tracking-widest text-zinc-400 dark:text-white/40 font-semibold mb-5">Work</h2>
           <div className="flex flex-col">
             <ProjectItem to="/portfolio" title="Portfolio" description="This site" />
-            <ProjectItem to="/brawllens" title="BrawlLens" description="Brawl Stars analytics" wip />
+            <ProjectItem to="/brawllens" title="BrawlLens" description="AI-powered Brawl Stars companion" wip />
           </div>
         </Section>
 

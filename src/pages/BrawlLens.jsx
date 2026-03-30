@@ -29,7 +29,7 @@ export default function BrawlLens() {
   return (
     <PageLayout
       title="BrawlLens"
-      subtitle="Analytics & scouting tool for Brawl Stars"
+      subtitle="AI-powered companion for Brawl Stars"
     >
       <div className="space-y-8">
 
