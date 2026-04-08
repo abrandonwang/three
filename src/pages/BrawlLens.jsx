@@ -5,7 +5,7 @@ const linkClass = "text-zinc-800 dark:text-white underline underline-offset-4 de
 const features = [
   {
     name: 'AI Chat',
-    description: 'Natural language interface on the homepage. Ask anything — player stats, brawler recommendations, meta questions — and get a structured answer powered by Claude.',
+    description: 'Natural language interface on the homepage. Ask anything (player stats, brawler recommendations, meta questions) and get a structured answer powered by Claude.',
   },
   {
     name: 'Player Lookup',
@@ -60,7 +60,7 @@ export default function BrawlLens() {
               ['Styling', 'Tailwind CSS'],
               ['Data', 'Brawl Stars API (self-hosted proxy) · Brawlify API'],
               ['Database', 'Supabase (leaderboard cache)'],
-              ['AI', 'Claude — natural language queries over live game data'],
+              ['AI', 'natural language queries over live game data using Opus'],
             ].map(([label, value], i, arr) => (
               <div
                 key={label}
