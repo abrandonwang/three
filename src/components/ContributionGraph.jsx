@@ -31,6 +31,7 @@ export default function ContributionGraph({ username }) {
   const { isDark } = useTheme()
   const [weeks, setWeeks] = useState([])
   const [monthLabels, setMonthLabels] = useState([])
+  const [total, setTotal] = useState(null)
   const [loading, setLoading] = useState(true)
   const [tooltip, setTooltip] = useState(null)
   const scrollRef  = useRef(null)
@@ -69,6 +70,7 @@ export default function ContributionGraph({ username }) {
           }
         })
 
+        setTotal(filtered.reduce((sum, d) => sum + d.count, 0))
         setWeeks(grouped)
         setMonthLabels(labels)
         setLoading(false)
@@ -185,6 +187,12 @@ export default function ContributionGraph({ username }) {
           )}
         </div>
       </div>
+
+      {total !== null && (
+        <p className="mt-3 text-[13px] font-semibold text-zinc-600 dark:text-white/70">
+          {total.toLocaleString()} contributions
+        </p>
+      )}
     </div>
   )
 }
