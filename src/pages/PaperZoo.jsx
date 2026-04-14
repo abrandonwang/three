@@ -4,37 +4,33 @@ const linkClass = "text-zinc-800 dark:text-white underline underline-offset-4 de
 
 const features = [
   {
-    name: 'AI Chat',
-    description: 'Natural language interface on the homepage. Ask anything (player stats, brawler recommendations, meta questions) and get a structured answer powered by Claude.',
+    name: 'Socratic Mentor Agent',
+    description: 'Generates dynamic SVG diagrams and contextual guidance for each origami step. Gives hints and explanations rather than direct answers.',
   },
   {
-    name: 'Player Lookup',
-    description: 'Search any player by tag to see trophies, win rates, and their full brawler roster sorted by trophies. Player data is fetched through a self-hosted proxy to the official Brawl Stars API.',
+    name: 'Visual Verification',
+    description: 'Webcam snapshots are analyzed by a multimodal AI model to evaluate fold accuracy against a rubric — generating constructive feedback instead of simple pass/fail.',
   },
   {
-    name: 'Brawler Catalog',
-    description: 'Browse every brawler in the game with rarity filtering and search. Data sourced from the Brawlify API, displaying star powers, gadgets, and rarity tiers.',
+    name: 'Digital Habitat',
+    description: 'Verified folds unlock unique pixel-art creatures that populate a personal habitat. Custom physics engine handles character sprites and collision logic.',
   },
   {
-    name: 'Leaderboards',
-    description: 'Global and regional leaderboards (US, Korea, Brazil, Germany, Japan) showing rank, player name, trophies, and club. Data is cached in Supabase and refreshed on a schedule.',
-  },
-  {
-    name: 'Meta / Maps',
-    description: 'Interactive map browser with a brawler recommendation sidebar. Displays current map rotations and which brawlers perform best on each map based on meta data.',
+    name: 'Community',
+    description: 'Visit other users\' habitats and share achievements.',
   },
 ]
 
-export default function BrawlLens() {
+export default function PaperZoo() {
   return (
     <PageLayout
-      title="BrawlLens"
-      subtitle="AI-powered companion for Brawl Stars"
+      title="PaperZoo"
+      subtitle="AI-powered origami learning platform"
     >
       <div className="space-y-8">
 
         <p className="text-[16px] text-zinc-700 dark:text-white/80 leading-relaxed">
-          A full-stack web app for Brawl Stars players to look up stats, scout opponents, study the meta, and ask questions in plain English. Built around a conversational AI interface backed by live game data.
+          A living ecosystem of digital wildlife brought to life through origami and agentic AI. Fold paper models, photograph your progress, and receive AI feedback while unlocking pixel-art creatures for your personal habitat. Built at WildHacks 2026.
         </p>
 
         <div>
@@ -56,11 +52,10 @@ export default function BrawlLens() {
           <span className="text-[12px] uppercase tracking-widest text-zinc-500 dark:text-white/50 font-semibold">Stack</span>
           <div className="mt-3 rounded-xl border border-zinc-200 dark:border-white/10 overflow-hidden">
             {[
-              ['Framework', 'Next.js (App Router) · TypeScript'],
-              ['Styling', 'Tailwind CSS'],
-              ['Data', 'Brawl Stars API (self-hosted proxy) · Brawlify API'],
-              ['Database', 'Supabase (leaderboard cache)'],
-              ['AI', 'natural language queries over live game data using Opus'],
+              ['Framework', 'Next.js 15 · TypeScript'],
+              ['Styling', 'Tailwind CSS v4'],
+              ['AI', 'Google Gemini — multimodal fold verification'],
+              ['Database', 'Supabase (PostgreSQL)'],
             ].map(([label, value], i, arr) => (
               <div
                 key={label}
@@ -75,10 +70,14 @@ export default function BrawlLens() {
 
         <div className="flex items-center gap-6">
           <div>
-            <span className="text-[12px] uppercase tracking-widest text-zinc-500 dark:text-white/50 font-semibold">Live</span>
+            <span className="text-[12px] uppercase tracking-widest text-zinc-500 dark:text-white/50 font-semibold">Event</span>
+            <p className="mt-1 text-[15px] text-zinc-700 dark:text-white/70">WildHacks 2026 Winner</p>
+          </div>
+          <div>
+            <span className="text-[12px] uppercase tracking-widest text-zinc-500 dark:text-white/50 font-semibold">GitHub</span>
             <p className="mt-1">
-              <a href="https://brawllens.com" target="_blank" rel="noopener noreferrer" className={linkClass}>
-                brawllens.com
+              <a href="https://github.com/pmadaan1/Wildhacks-2026" target="_blank" rel="noopener noreferrer" className={linkClass}>
+                pmadaan1/Wildhacks-2026
               </a>
             </p>
           </div>

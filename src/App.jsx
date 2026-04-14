@@ -137,7 +137,7 @@ export default function App() {
 
         <Section>
           <h2 className="text-[13px] uppercase tracking-widest text-zinc-400 dark:text-white/40 font-semibold mb-5">
-            Work
+            Projects
           </h2>
           <div className="flex flex-col">
             <ProjectItem
@@ -150,6 +150,12 @@ export default function App() {
               title="BrawlLens"
               description="AI-powered Brawl Stars companion"
               wip
+            />
+            <ProjectItem
+              to="/paperzoo"
+              title="PaperZoo"
+              description="AI-powered origami learning platform"
+              badge="WildHacks 2026 Winner"
             />
           </div>
         </Section>

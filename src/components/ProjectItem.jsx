@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-const ProjectItem = ({ title, description, href, to, wip }) => {
+const ProjectItem = ({ title, description, badge, href, to, wip }) => {
   const Wrapper = to ? Link : 'a'
   const props = to
     ? { to }
@@ -18,6 +18,11 @@ const ProjectItem = ({ title, description, href, to, wip }) => {
         <span className="text-[16px] text-zinc-400 dark:text-white/40">
           {description}
         </span>
+        {badge && (
+          <span className="text-[11px] font-semibold uppercase tracking-wide text-amber-500 dark:text-amber-400 border border-amber-400/40 dark:border-amber-400/30 px-1.5 py-0.5 rounded-md leading-none">
+            {badge}
+          </span>
+        )}
       </div>
       <div className="flex items-center gap-2">
         {wip && (

@@ -8,6 +8,7 @@ import Northwestern from './pages/Northwestern'
 import Everyday from './pages/Everyday'
 import BrawlLens from './pages/BrawlLens'
 import Portfolio from './pages/Portfolio'
+import PaperZoo from './pages/PaperZoo'
 import ScrollToTop from './components/ScrollToTop' // Import it here
 
 createRoot(document.getElementById('root')).render(
@@ -22,6 +23,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="/everyday" element={<Everyday />} />
           <Route path="/brawllens" element={<BrawlLens />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/paperzoo" element={<PaperZoo />} />
         </Routes>
       </ThemeProvider>
     </BrowserRouter>
